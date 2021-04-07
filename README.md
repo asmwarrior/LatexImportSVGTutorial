@@ -10,7 +10,11 @@ Note for the Miktex user, to run the `Latexmk`(makefile for latex), you have per
 
 You have `inkscape.exe` in your `PATH`, so that the `svg` package can find the `inkscape.exe` to convert the SVG file to pdf and tex file.
 
+If you have `latexmk` in your distribution, you can run the command to build the final document.
 
+`latexmk.exe -pdf --shell-escape -pdflatex=xelatex -silent -synctex=1 "test_svg"`
+
+Here the `xelatex` is used because I would like to support CJK characters. If only English characters is used, then you can simply use the `pdflatex` option. Another note the `--shell-escape` must be sepcified, because it will let the Latex to call the `inkscape.exe` when it compiles. If you don't want to run the `latexmk` command, then you have to normally run the `pdflatex` command several times to get the final result.
 
 ## Import SVG image from Inkscape
 
